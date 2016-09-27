@@ -1,7 +1,8 @@
 <h1><%= @post.title %></h1>
 
 <p><%= @post.body %></p>
-<hr>
+<hr><br><br>
+<h2>Comments:</h2>
 <% if !@comments.empty? %>
   <ul>
     <% @comments.each do |comment| %>
@@ -9,4 +10,13 @@
       <%= comment.body %></p>
     <% end %>
   </ul>
-<% end %>
+<% else %>
+<h3>No comments yet(Be the first to post one!)</h3>
+<% end %><br><br>
+<hr>
+<br><br>
+<%= erb :'/partials/_errors', layout: false, locals: {errors: @errors} %>
+<form action="/comment/new/<%=@post.id%>" method="POST" >
+  <textarea rows="4" cols="50" placeholder="Enter a Comment" name='body'></textarea><br>
+  <button action="submit">Submit</button>
+</form>

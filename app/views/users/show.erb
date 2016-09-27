@@ -1,18 +1,28 @@
 
 <div class = 'container'>
-  <h2>Welcome <%= @user.full_name %></h2>
-  <h3>Channels Currently Subscribed to:</h3>
+  <h2>Welcome <%= @user.username.capitalize %></h2>
+  <h3>Your Post activity:</h3>
   <ul>
-    <% if !@user.channels.empty? %>
-      <% @user.channels.each do |channel| %>
-        <li><%= channel.name %></li>
+    <% if !@user.posts.empty? %>
+      <% @user.posts.each do |post| %>
+        <li><%= post.title %></li>
       <% end %>
     <% else %>
-      <li>Not currently subscribed to any channels.</li>
+      <li>No activity, LOSER.</li>
     <% end %>
 
   </ul>
-  <h3>Total Charges This Month: </h3>
-  <p>$<%= sprintf"%.2f",@monthly_charge %></p>
+
+  <h3>Your Comment activity:</h3>
+  <ul>
+    <% if !@user.comments.empty? %>
+      <% @user.comments.each do |comment| %>
+        <li><%= comment.title %></li>
+      <% end %>
+    <% else %>
+      <li>No activity, LOSER.</li>
+    <% end %>
+
+  </ul>
 
 </div>
