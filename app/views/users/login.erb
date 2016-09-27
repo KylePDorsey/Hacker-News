@@ -1,4 +1,5 @@
 <p> Please fill in your info: </p></br>
+<%= erb :'/partials/_errors', layout: false, locals: {errors: @errors} %>
 <form action="/login" method="POST">
   <label> Username: </label><br>
   <input type="text" name="username" placeholder="username"><br>

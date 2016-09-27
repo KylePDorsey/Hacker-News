@@ -1,4 +1,5 @@
 <p> Create a new account: </p></br>
+<%= erb :'/partials/_errors', layout: false, locals: {errors: @errors} %>
 <form action="/users" method="POST">
   <label> Username: </label><br>
   <input type="text" name="username" placeholder="username"><br>
