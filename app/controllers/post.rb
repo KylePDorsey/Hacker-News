@@ -4,7 +4,11 @@ get '/posts' do
 end
 
 get '/posts/new' do
-  erb :'/posts/new'
+  if request.xhr?
+    erb :'/posts/new', layout: false
+  else
+    erb :'/posts/new'
+  end
 end
 
 get '/posts/:id' do

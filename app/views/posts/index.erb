@@ -1,10 +1,10 @@
 <h1>Dan-ga</h1>
 
-<ul>
+<ul class ='all-posts-list'>
   <% @posts.each do |post| %>
     <div class='post-container'>
       <li id="post-<%= post.id %>">
-        <span class='post-info'><form method= 'POST' action='/votes/<%=post.id%>'><input type= 'hidden' name=  'type' value='Post'><button><%= post.votes.count %></button></form></span>
+        <span class='post-info'><form class="post-form" method= 'POST' action='/votes/<%=post.id%>'><input type= 'hidden' name=  'type' value='Post'><button><%= post.votes.count %></button></form></span>
         <a href="/posts/<%= post.id %>"><%= post.title %></a><br>
       </li><br><br>
     </div>

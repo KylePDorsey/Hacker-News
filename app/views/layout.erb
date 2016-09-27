@@ -23,13 +23,13 @@
       <li class=""><a href="/">Home</a></li>
 
       <% if !logged_in? %>
-        <li class=""><a href="/users/new">Sign Up</a></li>
-        <li class=""><a href="/login">Login</a></li>
+        <li class="sign-up"><a href="/users/new">Sign Up</a></li>
+        <li class="login"><a href="/login">Login</a></li>
       <% end %>
       <% if logged_in? %>
-        <li class=""><a href="/logout">Log Out</a></li>
-        <li class=""><a href="/users/<%= current_user.id %>"><%= current_user.username.capitalize %></a></li>
-        <li class=""><a href="/posts/new">Create Post</a></li>
+        <li class="logout"><a href="/logout">Log Out</a></li>
+        <li class="user-link"><a href="/users/<%= current_user.id %>"><%= current_user.username.capitalize %></a></li>
+        <li class="create"><a href="/posts/new">Create Post</a></li>
       <% end %>
     </ul>
   </nav>

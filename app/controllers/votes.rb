@@ -8,7 +8,12 @@ post '/votes/:id' do
     post_id = comment.post.id
     redirect "/posts/#{post_id}"
   else
-    redirect '/'
+    if request.xhr?
+      post = Post.find(params[:id])
+      vote_count = post.votes.count.to_s
+    else
+      redirect '/'
+    end
   end
 end
 
