@@ -9,7 +9,7 @@ post '/users' do
     session[:user_id] = user.id
     redirect '/'
   else
-    # @errors = user.errors.full_messages  add later
+    @errors = user.errors.full_messages
     erb :'/users/new'
   end
 end
@@ -26,7 +26,7 @@ post '/login' do
     session[:user_id] = user.id
     redirect '/'
   else
-    # @errors = ["Username or Password are Incorrect!"]
+    @errors = ["Username or Password are Incorrect!"]
     erb :'/users/new'
   end
 end
@@ -35,3 +35,24 @@ get '/logout' do
   session.delete(:user_id)
   redirect '/'
 end
+
+get '/users/:id' do
+  @user = User.find_by(id: params[:id])
+  if @user && current_user.id == @user.id
+    erb :'/users/show'
+  else
+    redirect'/'
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,6 +28,7 @@
       <% end %>
       <% if logged_in? %>
         <li class=""><a href="/logout">Log Out</a></li>
+        <li class=""><a href="/users/<%= current_user.id %>"><%= current_user.username.capitalize %></a></li>
       <% end %>
     </ul>
   </nav>

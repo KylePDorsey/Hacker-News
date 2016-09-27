@@ -1,0 +1,12 @@
+<h1><%= @post.title %></h1>
+
+<p><%= @post.body %></p>
+<hr>
+<% if !@comments.empty? %>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li><span><form action="/votes/<%= comment.id %>" method="post"><input type= 'hidden' name=  'type' value='Comment'><button><%= comment.votes.count %> votes </button></form></span></li>
+      <%= comment.body %></p>
+    <% end %>
+  </ul>
+<% end %>
