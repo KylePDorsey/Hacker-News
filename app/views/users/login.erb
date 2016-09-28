@@ -1,0 +1,10 @@
+<p> Please fill in your info: </p></br>
+<%= erb :'/partials/_errors', layout: false, locals: {errors: @errors} %>
+<form action="/login" method="POST">
+  <label> Username: </label><br>
+  <input type="text" name="username" placeholder="username"><br>
+  <br>
+  <label> Password: </label><br>
+  <input type="password" name="password" placeholder="password"><br><br>
+  <input type="submit" value="Login!">
+</form>

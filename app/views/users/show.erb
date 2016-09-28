@@ -1,0 +1,28 @@
+
+<div class = 'container'>
+  <h2>Welcome <%= @user.username.capitalize %></h2>
+  <h3>Your Post activity:</h3>
+  <ul>
+    <% if !@user.posts.empty? %>
+      <% @user.posts.each do |post| %>
+        <li><%= post.title %></li>
+      <% end %>
+    <% else %>
+      <li>No activity, LOSER.</li>
+    <% end %>
+
+  </ul>
+
+  <h3>Your Comment activity:</h3>
+  <ul>
+    <% if !@user.comments.empty? %>
+      <% @user.comments.each do |comment| %>
+        <li><%= comment.title %></li>
+      <% end %>
+    <% else %>
+      <li>No activity, LOSER.</li>
+    <% end %>
+
+  </ul>
+
+</div>
